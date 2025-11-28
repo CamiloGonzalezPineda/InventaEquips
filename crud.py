@@ -14,7 +14,7 @@ def actualiar():
     buscar = input('Ingresa el nombre')
     for e in equipos:
         if e['nombre'] == buscar:
-            print(f'Se encontro {e}')
+            print(f'Se encontro {e["nombre"]} {e["ciudad"]}'.title())
             nuevo_nomb = input('NOMBRE NEW: ')
             nuevo_city = input('CITY')
             if nuevo_nomb:
@@ -29,17 +29,23 @@ def leer():
     print(f'{"nombre":<15}{"ciudad":<15}'.title())
     for e in equipos:
      print(f'{e["nombre"]:<15}{e["ciudad"]:<15}'.title())
+    else:
+        print('NO HAY EQUIPOS')
 
 def eliminar():
+    buscar = input('Ingresa nombre: ')
     for e in equipos:
-        buscar = input('Ingresa nombre: ')
-        if e['nombre'] == buscar:
-           print(f" SE ENCONTRO {e}")
+     if e['nombre'] == buscar:
+        print(f" SE ENCONTRO {e}")
         respuesta = input('DESEA ELIMINARLO SI/ NO: ')
         if respuesta == 'si':
                 equipos.remove(e)
-        if respuesta == 'no':
+                print('delete')
+                return
+        elif respuesta == 'no':
               print('Operación cancelada')
-    
+              return
+    else:
+     print('Team NO exist')
 
 
